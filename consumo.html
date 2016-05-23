@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>EcoSave - Huella Ecologica</title>
+<body style="background:#F0E8F1">
+<!-- css3-mediaqueries.js para internet explorer -->
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<link href="css/botones.css" rel="stylesheet">
+<link href="css/graficos.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<div id="pagewrap">
+
+	<div id="header">
+	<a href="index.html"><IMG SRC="images/home.png" WIDTH=48 HEIGHT=48 ALT="Nombre de la empresa"></a>
+	<IMG SRC="images/config.png" WIDTH=48 HEIGHT=48 ALT="Configuración" P ALIGN=right>
+  <IMG SRC="images/yo.png" WIDTH=48 HEIGHT=48 ALT="Mi perfil" P ALIGN=right>
+  <IMG SRC="images/cerrar.png" WIDTH=48 HEIGHT=48 ALT="Cerrar sesión" P ALIGN=right>
+	</div>
+
+	<div id="content">
+<br><br><br>
+<script src="js/Chart.js"></script>
+
+
+<div id="canvas-holder">
+<canvas id="chart-area3" width="600" height="300"></canvas>
+</div>
+<script>
+
+
+    	var barChartData = {
+    		labels : ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio"],
+    		datasets : [
+    			{
+    				fillColor : "#6b9dfa",
+    				strokeColor : "#ffffff",
+    				highlightFill: "#1864f2",
+    				highlightStroke: "#ffffff",
+    				data : [90,30,10,80,15,5,15]
+    			},
+    			{
+    				fillColor : "#e9e225",
+    				strokeColor : "#ffffff",
+    				highlightFill : "#ee7f49",
+    				highlightStroke : "#ffffff",
+    				data : [40,50,70,40,85,55,15]
+    			}
+    		]
+
+    	}
+
+
+    var ctx3 = document.getElementById("chart-area3").getContext("2d");
+
+
+    window.myPie = new Chart(ctx3).Bar(barChartData, {responsive:true});
+</script>
+
+<br><br>
+
+		<h2>Comparativa tarifa actual, con tarifa ideal €</h2>
+
+      <br>
+      <p>Con la tarifa 3.0 ahorrarias 10€ mensualmente según tus hábitos eléctronicos</p>
+      <br><br>
+      <h2>Consejos ahorro</h2>
+      <br>
+      <p>Podrías plantearte cambiar las bombillas de tu domicilio por otras de bajo consumo.</p>
+      <br>
+      <p>Podrías intentar poner las lavadora antes de ir a dormir.</p>
+      <br>
+      <p>Intenta rebajar el consumo en esas franjas rojas de la anterior grafica.</p>
+
+
+</div>
+<br>
+<br>
+
+
+
+
+
+
+<div id="sidebar">
+
+
+<h2>Consumo por horas</h2>
+
+<br>
+
+  <table id="dist">
+  	<tbody>
+  		<thead>
+  			<tr>
+  			<th></th>
+  			<th>L</th>
+  			<th>M</th>
+  			<th>X</th>
+  			<th>J</th>
+  			<th>V</th>
+  			<th>S</th>
+  			<th>D</th>
+  			</tr>
+  		</thead>
+  		<tbody>
+  			<tr>
+  				<th>00-04h</th>
+  					<td class="dist dist_-1" id="w1h0"></td>
+  					<td class="dist dist_-4" id="w2h0"></td>
+  					<td class="dist dist_-4" id="w3h0"></td>
+  					<td class="dist dist_-4" id="w4h0"></td>
+  					<td class="dist dist_-4" id="w5h0"></td>
+  					<td class="dist dist_-4" id="w6h0"></td>
+  					<td class="dist dist_-4" id="w7h0"></td>
+  			</tr>
+  			<tr>
+  				<th>04-08h</th>
+  					<td class="dist dist_-4" id="w1h1"></td>
+  					<td class="dist dist_-4" id="w2h1"></td>
+  					<td class="dist dist_-4" id="w3h1"></td>
+  					<td class="dist dist_-4" id="w4h1"></td>
+  					<td class="dist dist_-4" id="w5h1"></td>
+  					<td class="dist dist_-4" id="w6h1"></td>
+  					<td class="dist dist_-4" id="w7h1"></td>
+  			</tr>
+  			<tr>
+  				<th>08-12h</th>
+  					<td class="dist dist_2" id="w1h2"></td>
+  					<td class="dist dist_4" id="w2h2"></td>
+  					<td class="dist dist_2" id="w3h2"></td>
+  					<td class="dist dist_3" id="w4h2"></td>
+  					<td class="dist dist_4" id="w5h2"></td>
+  					<td class="dist dist_0" id="w6h2"></td>
+  					<td class="dist dist_3" id="w7h2"></td>
+  			</tr>
+  			<tr>
+  				<th>12-16h</th>
+  					<td class="dist dist_3" id="w1h3"></td>
+  					<td class="dist dist_1" id="w2h3"></td>
+  					<td class="dist dist_-2" id="w3h3"></td>
+  					<td class="dist dist_0" id="w4h3"></td>
+  					<td class="dist dist_3" id="w5h3"></td>
+  					<td class="dist dist_-4" id="w6h3"></td>
+  					<td class="dist dist_-1" id="w7h3"></td>
+  			</tr>
+  			<tr>
+  				<th>16-20h</th>
+  					<td class="dist dist_-1" id="w1h4"></td>
+  					<td class="dist dist_3" id="w2h4"></td>
+  					<td class="dist dist_-1" id="w3h4"></td>
+  					<td class="dist dist_1" id="w4h4"></td>
+  					<td class="dist dist_-2" id="w5h4"></td>
+  					<td class="dist dist_-4" id="w6h4"></td>
+  					<td class="dist dist_4" id="w7h4"></td>
+  			</tr>
+  			<tr>
+  				<th>20-24h</th>
+  					<td class="dist dist_4" id="w1h5"></td>
+  					<td class="dist dist_4" id="w2h5"></td>
+  					<td class="dist dist_4" id="w3h5"></td>
+  					<td class="dist dist_4" id="w4h5"></td>
+  					<td class="dist dist_-3" id="w5h5"></td>
+  					<td class="dist dist_4" id="w6h5"></td>
+  					<td class="dist dist_4" id="w7h5"></td>
+  			</tr>
+  		</tbody>
+  	</tbody>
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div id="footer">
+<h4></h4>
+</div>
+
+</div>
+</body>
+</html>
