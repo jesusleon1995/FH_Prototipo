@@ -78,6 +78,7 @@ MEDIA QUERIES
 
 	#header {
 		height: auto;
+		display: block;
 	}
 	h1 {
 		font-size: 24px;
