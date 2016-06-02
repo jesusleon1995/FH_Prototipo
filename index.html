@@ -17,6 +17,9 @@
 
 <body>
 
+<script src="js/index.js">
+</script>
+
 <div id="pagewrap">
 
 	<div id="header">
@@ -62,11 +65,11 @@
 
 <br>
 
-<div id="paginacion">
+<div id="paginacion1">
 <span class="izquierda"><IMG SRC="images/tv.png" WIDTH=40 HEIGHT=40></span>
-<span class="centro"><div class="grafico"><strong class="barra" style="width: 40%;">40%</strong></div></span>
+<span class="centro"><div class="grafico"><strong class="barra" id="bar1" style="width: 40%;">40%</strong></div></span>
 <span class="derecha"><div class="onoffswitch">
-<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" onchange="renderChart(this, 'val')" checked>
 <label class="onoffswitch-label" for="myonoffswitch">
 <span class="onoffswitch-inner"></span>
 <span class="onoffswitch-switch"></span>
@@ -81,11 +84,11 @@
 
 
 
-<div id="paginacion">
+<div id="paginacion2">
 <span class="izquierda"><IMG SRC="images/computer.png" WIDTH=40 HEIGHT=40></span>
-<span class="centro"><div class="grafico"><strong class="barra" style="width: 24%;">24%</strong></div></span>
+<span class="centro"><div class="grafico"><strong class="barra" id="bar2" style="width: 24%;">24%</strong></div></span>
 <span class="derecha"><div class="onoffswitch2">
-<input type="checkbox" name="onoffswitch2" class="onoffswitch2-checkbox" id="myonoffswitch2" checked>
+<input type="checkbox" name="onoffswitch2" class="onoffswitch2-checkbox" id="myonoffswitch2" onchange="renderChart(this, 'val')" checked>
 <label class="onoffswitch2-label" for="myonoffswitch2">
 <span class="onoffswitch2-inner"></span>
 <span class="onoffswitch2-switch"></span>
@@ -100,11 +103,11 @@
 
 
 
-<div id="paginacion">
+<div id="paginacion3">
 <span class="izquierda"><IMG SRC="images/smartphone.png" WIDTH=40 HEIGHT=40></span>
-<span class="centro"><div class="grafico"><strong class="barra" style="width: 16%;">16%</strong></div></span>
+<span class="centro"><div class="grafico"><strong class="barra" id="bar3" style="width: 16%;">16%</strong></div></span>
 <span class="derecha"><div class="onoffswitch3">
-<input type="checkbox" name="onoffswitch" class="onoffswitch3-checkbox" id="myonoffswitch3" checked>
+<input type="checkbox" name="onoffswitch" class="onoffswitch3-checkbox" id="myonoffswitch3" onchange="renderChart(this, 'val')" checked>
 <label class="onoffswitch3-label" for="myonoffswitch3">
 <span class="onoffswitch3-inner"></span>
 <span class="onoffswitch3-switch"></span>
@@ -119,11 +122,11 @@
 
 
 
-<div id="paginacion">
+<div id="paginacion4">
 <span class="izquierda"><IMG SRC="images/printer.png" WIDTH=40 HEIGHT=40></span>
-<span class="centro"><div class="grafico"><strong class="barra" style="width: 5%;">5%</strong></div></span>
+<span class="centro"><div class="grafico"><strong class="barra" id="bar4" style="width: 5%;">5%</strong></div></span>
 <span class="derecha"><div class="onoffswitch4">
-<input type="checkbox" name="onoffswitch" class="onoffswitch4-checkbox" id="myonoffswitch4" checked>
+<input type="checkbox" name="onoffswitch" class="onoffswitch4-checkbox" id="myonoffswitch4" onchange="renderChart(this, 'val')" checked>
 <label class="onoffswitch4-label" for="myonoffswitch4">
 <span class="onoffswitch4-inner"></span>
 <span class="onoffswitch4-switch"></span>
@@ -147,11 +150,11 @@
 
 <br>
 
-<div id="paginacion">
+<div id="paginacion5">
 <span class="izquierda"><IMG SRC="images/microwave.png" WIDTH=40 HEIGHT=40></span>
-<span class="centro"><div class="grafico"><strong class="barra" style="width: 10%;">10%</strong></div></span>
+<span class="centro"><div class="grafico"><strong class="barra" id="bar5" style="width: 10%;">10%</strong></div></span>
 <span class="derecha"><div class="onoffswitch5">
-<input type="checkbox" name="onoffswitch" class="onoffswitch5-checkbox" id="myonoffswitch5" checked>
+<input type="checkbox" name="onoffswitch" class="onoffswitch5-checkbox" id="myonoffswitch5" onchange="renderChart(this, 'val')" checked>
 <label class="onoffswitch5-label" for="myonoffswitch5">
 <span class="onoffswitch5-inner"></span>
 <span class="onoffswitch5-switch"></span>
@@ -166,11 +169,11 @@
 
 
 
-<div id="paginacion">
+<div id="paginacion6">
 <span class="izquierda"><IMG SRC="images/mixer.png" WIDTH=40 HEIGHT=40></span>
-<span class="centro"><div class="grafico"><strong class="barra" style="width: 5%;">5%</strong></div></span>
+<span class="centro"><div class="grafico"><strong class="barra" id="bar6" style="width: 5%;">5%</strong></div></span>
 <span class="derecha"><div class="onoffswitch6">
-<input type="checkbox" name="onoffswitch" class="onoffswitch6-checkbox" id="myonoffswitch6" checked>
+<input type="checkbox" name="onoffswitch" class="onoffswitch6-checkbox" id="myonoffswitch6" onchange="renderChart(this, 'val')" checked>
 <label class="onoffswitch6-label" for="myonoffswitch6">
 <span class="onoffswitch6-inner"></span>
 <span class="onoffswitch6-switch"></span>
@@ -226,29 +229,15 @@
     			];
 
     	var barChartData = {
-    		labels : ["Iluminacion"],
+    		labels : ["Televisor", "Ordenador", "Smartphone", "Impresora", "Microondas", "Batidora"],
     		datasets : [
     			{
     				fillColor : "#6b9dfa",
     				strokeColor : "#ffffff",
     				highlightFill: "#1864f2",
     				highlightStroke: "#ffffff",
-    				data : [90]
-    			},
-    			{
-    				fillColor : "#e9e225",
-    				strokeColor : "#ffffff",
-    				highlightFill : "#ee7f49",
-    				highlightStroke : "#ffffff",
-    				data : [40]
-    			},
-                {
-                    fillColor : "#e9e225",
-                    strokeColor : "#ffffff",
-                    highlightFill : "#ee7f49",
-                    highlightStroke : "#ffffff",
-                    data : [70]
-                }
+    				data : [40, 24, 10, 5, 10, 5]
+    			}
     		]
 
     	}
