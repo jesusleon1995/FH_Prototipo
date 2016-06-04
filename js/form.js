@@ -1,6 +1,7 @@
 var topPx = 575;
 var imgId = 6;
 var textId = 13;
+var topbtn = 0;
 
 function validateForm() {
 	var tarifa = document.forms['form1']['formtext1'].value;
@@ -20,7 +21,16 @@ function changeImg(elem, img) {
 }
 
 function addDispositivo() {
+	//moverButons();
 	topPx += 40;
+	topbtn += 40;
+	console.log(topbtn);
+	console.log("hola");
+
+	document.getElementById("btn1").style.top=809+topbtn+'px';
+	document.getElementById("btn2").style.top=733+topbtn+'px'; 
+	document.getElementById("btn3").style.top=809+topbtn+'px'; 
+	document.getElementById("btn4").style.top=733+topbtn+'px'; 
 	imgId += 1;
 	textId += 2;
 	var div1 = '<div id="image'+imgId+'" style="position:absolute; overflow:hidden; left:12px; top:'+topPx+'px; width:41px; height:33px; z-index:24"><img id="img'+imgId+'" src="images/tv.png" alt="" border=0 width=41 height=33></div>';
@@ -28,7 +38,7 @@ function addDispositivo() {
 	var div3 = '<div style="left:280px;top:'+topPx+'px;"><input name="formtext'+textId+'" type="text" style="position:absolute;width:110px;left:280px;top:'+topPx+'px;z-index:19"><input name="formtext'+(textId+1)+'" type="text" style="position:absolute;width:110px;left:457px;top:'+topPx+'px;z-index:20"></div>';
 	var div4 = '<div style="left:750px;top:'+topPx+'px;"><select name="formselect'+imgId+'" style="position:absolute;left:750px;top:'+topPx+'px;width:110px;z-index:21"><option value="op1">00h - 04h</option><option value="op2">04h - 08h</option><option value="op3">08h - 12h</option><option value="op4">12h - 16h</option><option value="op5">16h - 20h</option><option value="op6">20h - 00h</option></select></div>';	
 	
-	console.log(div3);
+	//console.log(div3);
 	var container = document.getElementById("container");
 	var img = document.createElement("div");
 	var sel1 = document.createElement("div");
@@ -44,4 +54,15 @@ function addDispositivo() {
 	container.appendChild(sel1);
 	container.appendChild(sel2);
 	container.appendChild(text);
+
+	
+}
+
+function moverButons(){
+	top += 40;
+	console.log(top);
+	document.getElementById("btn1").style.top=809+top;
+	document.getElementById("btn2").style.top=733+top; 
+	document.getElementById("btn3").style.top=809+top; 
+	document.getElementById("btn4").style.top=733+top; 
 }
